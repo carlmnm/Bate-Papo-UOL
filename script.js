@@ -119,12 +119,22 @@ function processarResposta(resposta){
 setInterval(pegandoMensagem, 3000);
 
 function enviarMensagem(){
+    let mensagemDigitada = document.querySelector(".input-mensagem").value;
+    let stringMensagem = document.querySelector(".input-mensagem")
     let objetoMensagem = {
         from: userName,
         to: "Todos",
-        text: "mensagem digitada",
-        type: "message" // ou "private_message" para o bônus
+        text: mensagemDigitada,
+        type: "message" 
     }
+
+    axios.post('https://mock-api.driven.com.br/api/v6/uol/messages', objetoMensagem);
+
+    pegandoMensagem();
+
+    stringMensagem.value = "";
+
+
 
 
 }
