@@ -76,9 +76,9 @@ function processarResposta(resposta){
                     <div class="remetente-destinatario formato-texto">
                         ${array[i].to}
                     </div>
-                    <span class="texto formato-texto">
+                    <p class="texto formato-texto">
                         : ${array[i].text}
-                    </span>
+                    </p>
                 </div>
                 `;
             } else if ((array[i].type === "status") && (array[i].to === "Todos")) {
@@ -128,11 +128,23 @@ function enviarMensagem(){
         type: "message" 
     }
 
-    axios.post('https://mock-api.driven.com.br/api/v6/uol/messages', objetoMensagem);
+    const requisicao = axios.post('https://mock-api.driven.com.br/api/v6/uol/messages', objetoMensagem);
+    requisicao.then(tratamentoSucesso)
+    requisicao.catch(tratarFalha);
 
-    pegandoMensagem();
+    function tratarFalha(erro){
+        const statusCode = erro.response.status;
+        console.log(statusCode);
 
-    stringMensagem.value = "";
+        alert("Pode ser que você esteja fora da sala. Por favor, entre novamente")
+        window.location.reload();
+    }
+
+    function tratamentoSucesso(){
+        pegandoMensagem();
+
+        stringMensagem.value = "";
+    }
 
 
 

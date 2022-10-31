@@ -105,10 +105,12 @@ input {
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
+    word-wrap: break-word;
 
     margin-top: 4px;
     margin-left: 4px;
 
+    
 
 }
 
@@ -119,7 +121,7 @@ input {
     font-weight: 400;
 
     display: flex;
-    align-items: center;
+    
 
 }
 
@@ -170,9 +172,14 @@ input {
 }
 
 .texto{
+    
     display: flex;
+    overflow-wrap: break-word;
     word-wrap: break-word;
+    word-break: break-word;
+    
 }
+
 
 
 
