@@ -63,7 +63,7 @@ function processarResposta(resposta){
             if ((array[i].type === "message") && (array[i].to === "Todos")){
                 
                 elementoMensagem.innerHTML += `
-                <div id="texto-enviado" class="mensagem">
+                <div id="texto-enviado" class="mensagem" data-test="message">
                     <div class="tempo formato-texto">
                         (${array[i].time})
                     </div>
@@ -83,7 +83,7 @@ function processarResposta(resposta){
                 `;
             } else if ((array[i].type === "status") && (array[i].to === "Todos")) {
                 elementoMensagem.innerHTML += `
-                <div id="status-enviado" class="status">
+                <div id="status-enviado" class="status" data-test="message">
                     <div class="tempo formato-texto">
                         (${array[i].time})
                     </div>
